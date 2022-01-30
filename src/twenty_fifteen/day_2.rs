@@ -23,13 +23,10 @@ pub mod part_1 {
         let mut sum: i32 = 0;
         for line in input {
             let dimensions: Vec<&str> = line.split("x").collect();
-            let width: i32 = dimensions[0].trim().parse().expect("Failed to read width");
-            let length: i32 = dimensions[1].trim().parse().expect("Failed to read length");
-            let height: i32 = dimensions[2].trim().parse().expect("Failed to read height");
             let present: super::Present = super::Present {
-                width,
-                height,
-                length,
+                width: dimensions[0].trim().parse().expect("Failed to read width"),
+                height: dimensions[1].trim().parse().expect("Failed to read length"),
+                length: dimensions[2].trim().parse().expect("Failed to read height"),
             };
             sum += calculate_surface_area(&present) + calculate_extra(&present);
         }

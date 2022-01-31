@@ -35,5 +35,27 @@ pub mod part_1 {
 }
 
 pub mod part_2 {
+    pub fn calculate_cubic_volume(present: &super::Present) -> i32 {
+        present.width * present.height * present.length
+    }
 
+    pub fn calculate_smallest_perimeter(present: &super::Present) -> i32 {
+        let mut measures: Vec<i32> = vec!(present.width, present.height, present.length);
+        measures.sort();
+        (2 * measures[0]) + (2 * measures[1])
+    }
+
+    pub fn solve(input: Vec<&str>) -> i32 {
+        let mut sum: i32 = 0;
+        for line in input {
+            let dimensions: Vec<&str> = line.split("x").collect();
+            let present: super::Present = super::Present {
+                width: dimensions[0].trim().parse().expect("Failed to read width"),
+                height: dimensions[1].trim().parse().expect("Failed to read height"),
+                length: dimensions[2].trim().parse().expect("Failed to read length"),
+            };
+            sum += calculate_cubic_volume(&present) + calculate_smallest_perimeter(&present);
+        }
+        sum
+    }
 }

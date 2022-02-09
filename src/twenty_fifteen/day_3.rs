@@ -1,4 +1,5 @@
-
+// Advent of Code 2015 Day 3
+// https://adventofcode.com/2015/day/3
 
 pub mod part_1 {
     use std::collections::HashSet;

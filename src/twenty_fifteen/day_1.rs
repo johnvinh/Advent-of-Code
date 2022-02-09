@@ -1,3 +1,6 @@
+// Advent of Code 2015 Day 1
+// https://adventofcode.com/2015/day/1
+
 pub mod part_1 {
     pub fn get_floor_difference(c: char) -> i32 {
         match c {
